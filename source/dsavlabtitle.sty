@@ -1,0 +1,88 @@
+\ProvidesPackage{dsavlabtitle}
+
+\newcommand{\@chair}{}
+\newcommand{\chair}[1]{\renewcommand{\@chair}{#1}}
+
+\newcommand{\@group}{}
+\newcommand{\group}[1]{\renewcommand{\@group}{#1}}
+
+\newcommand{\@checkedby}{}
+\newcommand{\checkedby}[1]{\renewcommand{\@checkedby}{#1}}
+
+\newcommand{\@fullcheckedby}{}
+\newcommand{\showcheckedby}
+{
+  \renewcommand{\@fullcheckedby}{Проверил \hfill \@checkedby \\}
+}
+\newcommand{\hidecheckedby}
+{
+  \renewcommand{\@fullcheckedby}{\@empty}
+}
+\showcheckedby
+
+\newcommand{\@city}{}
+\newcommand{\city}[1]{\renewcommand{\@city}{#1}}
+
+\newcommand{\@discipline}{}
+\newcommand{\discipline}[1]{\renewcommand{\@discipline}{#1}}
+
+\newcommand{\@worktype}{}
+\newcommand{\worktype}[1]{\renewcommand{\@worktype}{#1}}
+
+\newcommand{\@worknum}{}
+\newcommand{\worknum}[1]{\renewcommand{\@worknum}{#1}}
+
+\newcommand{\@authorlabel}{Выполнил}
+\newcommand{\authorlabel}[1]{\renewcommand{\@authorlabel}{#1}}
+
+% Make \maketitle to output title of our style
+\renewcommand{\maketitle}{
+
+  \begin{titlepage}
+
+  \newpage
+
+  \begin{center}
+    Министерство образования Республики Беларусь \\
+    \vspace{0.5cm}
+    УО <<Полоцкий государственный университет>> \\
+  \end{center}
+
+  \vspace{5em}
+
+  \flushright{\@chair}
+
+  \vspace{8em}
+
+  \begin{center}
+    \LARGE \@discipline \\
+    
+    \Large
+    
+    \vspace{1em}
+    
+    \@worktype~\textnumero~\@worknum \\
+    
+    \vspace{1em}
+    
+    \@title
+  \end{center}
+
+  \vspace{6em}
+
+  \begin{flushleft}
+    \@authorlabel \hfill\ \@author \\
+    \hfill\ Группа~\@group \\
+    \vspace{1.5em}
+    \@fullcheckedby
+  \end{flushleft}
+
+  \vspace{\fill}
+
+  \begin{center}
+    \@city \\ 
+    \the\year
+  \end{center}
+
+  \end{titlepage}
+}

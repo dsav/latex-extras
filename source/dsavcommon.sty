@@ -1,0 +1,20 @@
+\ProvidesPackage{dsavcommon}
+
+
+%% \code{text}  Prints text with monospace font
+%% Usage        Class \text{Parser} performs parsing.  
+\newcommand{\code}{\texttt}
+
+
+\RequirePackage{graphicx}
+
+% Default graphics path
+\graphicspath{{./images/}}
+
+
+%% \image[width]{file}  Prints image from 'file' scaling it so that its width 
+%%                      gets equal to text paragraph width multiplied by 'width'
+%% Usage                \image[0.6]{image.png}
+\newcommand{\image}[2][1]{%
+  \noindent\makebox[\textwidth][c]{\includegraphics[width = #1\textwidth]{#2}}
+}

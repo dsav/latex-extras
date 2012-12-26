@@ -1,0 +1,27 @@
+\ProvidesPackage{dsavmath}
+
+
+% etoolbox provides \ifdef command
+\RequirePackage{etoolbox} 
+
+
+%% \d     Derivative symbol
+%% Usage  $ \frac{\d y}{\d x} = x^2 $
+
+% \d is usually already defined for making an under dot so make a check
+% and redefine if needed
+\newcommand{\@d}{\ensuremath{\mathrm{d}}}
+\ifdef{\d}
+{
+  \let\underdot\d
+  \renewcommand{\d}{\@d}
+}
+{
+  \newcommand{\d}{\@d}
+}
+
+
+%% \e     Exponent symbol
+%% Usage  $ y = 2\e^{x-9} $
+
+\newcommand{\e}{\ensuremath{\mathrm{e}}}

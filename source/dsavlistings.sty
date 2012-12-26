@@ -1,0 +1,62 @@
+\ProvidesPackage{dsavlistings}
+
+
+% Load minted package and specify syntax coloring default scheme
+\RequirePackage{minted}
+\usemintedstyle{tango}
+
+% A minted color style may be specified as an option to dsavlistings.
+% Let minted process it.
+\DeclareOption*{%
+  \usemintedstyle{\CurrentOption}
+}
+\ProcessOptions
+
+% Can't name commands \@fontsize and \@baselinestretch since it leads to
+% 'Command \@ already defined'. This is due to some minted stuff.
+\newcommand{\mintedfontsize}{\footnotesize}
+\newcommand{\mintedbaselinestretch}{0.8}
+
+
+%% \source[language=text]{file} Inputs 'file' and applies 'language' syntax 
+%%                              coloring scheme
+%% Usage                        \source{java}{Main.java}
+\newcommand{\source}[2][text]
+{
+    {\sffamily
+    \inputminted[
+      frame = single,
+      linenos,
+      numbersep = -12pt,
+      framesep = 20pt,
+      tabsize = 2,
+      fontsize = \mintedfontsize,
+      baselinestretch = \mintedbaselinestretch
+    ]{#1}{#2}
+  }
+}
+
+
+%% \begin{formatsource}   Prints wrapped text verbatim
+%% Usage
+%%                       \begin{formatsource}
+%%                         while (true) {
+%%                           doCoolStuff();
+%%                         }
+%%                       \end{formatsource}
+\newminted[formatsource]{text}{gobble=2,
+                               fontsize=\mintedfontsize,
+                               baselinestretch=\mintedbaselinestretch}
+
+\renewcommand\listingscaption{Листинг}
+
+% 'listing' environment is already defined in minted, but it heavily wants 
+% to print everything at one page
+
+%% \begin{listing}      A floating environment to use with \source
+%% Usage                \begin{listing}
+%%                        \caption{Lorem ipsum listing}
+%%                        \label{lst:lorem-ipsum}
+%%                        \source[java]{files/lipsum.java}
+%%                      \end{listing}
+\renewenvironment{listing}{\captionsetup{type = listing, belowskip = 0pt}}{}
