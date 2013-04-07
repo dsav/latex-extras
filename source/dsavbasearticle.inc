@@ -88,7 +88,7 @@
 
 
 % Use URLs
-\RequirePackage[colorlinks, breaklinks, bookmarks=true, xetex]{hyperref}
+\RequirePackage[colorlinks, breaklinks, bookmarks=true, xetex, unicode, pdfencoding=auto]{hyperref}
 
 % Setup URLs color
 \hypersetup{
@@ -113,7 +113,7 @@
   font = small,
   singlelinecheck = false,
   justification = raggedright,
-  figureposition = bottom, 
+  figureposition = bottom,
   tableposition = top
 }
 
