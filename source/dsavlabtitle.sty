@@ -9,10 +9,13 @@
 \newcommand{\@checkedby}{}
 \newcommand{\checkedby}[1]{\renewcommand{\@checkedby}{#1}}
 
-\newcommand{\@fullcheckedby}{}
+\newcommand{\@checkedbylabel}{Проверил}
+\newcommand{\checkedbylabel}[1]{\renewcommand{\@checkedbylabel}{#1}}
+
+\newcommand{\@fullcheckedby}{\@empty}
 \newcommand{\showcheckedby}
 {
-  \renewcommand{\@fullcheckedby}{Проверил \hfill \@checkedby \\}
+  \renewcommand{\@fullcheckedby}{\@checkedbylabel \hfill \@checkedby \\}
 }
 \newcommand{\hidecheckedby}
 {
@@ -31,6 +34,17 @@
 
 \newcommand{\@worknum}{}
 \newcommand{\worknum}[1]{\renewcommand{\@worknum}{#1}}
+
+\newcommand{\@worktext}{\@empty}
+\newcommand{\showworktext}
+{
+  \renewcommand{\@worktext}{\@worktype~\textnumero~\@worknum \\ \vspace{1em}}
+}
+\newcommand{\hideworktext}
+{
+  \renewcommand{\@worktext}{\@empty}
+}
+\showworktext
 
 \newcommand{\@authorlabel}{Выполнил}
 \newcommand{\authorlabel}[1]{\renewcommand{\@authorlabel}{#1}}
@@ -56,15 +70,13 @@
 
   \begin{center}
     \LARGE \@discipline \\
-    
+
     \Large
-    
+
     \vspace{1em}
-    
-    \@worktype~\textnumero~\@worknum \\
-    
-    \vspace{1em}
-    
+
+    \@worktext
+
     \@title
   \end{center}
 
@@ -80,7 +92,7 @@
   \vspace{\fill}
 
   \begin{center}
-    \@city \\ 
+    \@city \\
     \the\year
   \end{center}
 
