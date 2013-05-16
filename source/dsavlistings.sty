@@ -36,6 +36,23 @@
   }
 }
 
+%% \nonumsource[language=text]{file} Inputs 'file' and applies 'language' syntax
+%%                                   coloring scheme. No line numbers are added.
+%% Usage                             \nonumsource{java}{Main.java}
+\newcommand{\nonumsource}[2][text]
+{
+    {\sffamily
+    \inputminted[
+      frame = single,
+      numbersep = -12pt,
+      framesep = 20pt,
+      tabsize = 2,
+      fontsize = \mintedfontsize,
+      baselinestretch = \mintedbaselinestretch
+    ]{#1}{#2}
+  }
+}
+
 
 %% \begin{formatsource}   Prints wrapped text verbatim
 %% Usage
