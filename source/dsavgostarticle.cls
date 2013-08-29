@@ -7,6 +7,8 @@
 }
 \ProcessOptions
 
+\DeclareRobustCommand\No\textnumero
+
 % Base this class on 'eskdtext' class
 \LoadClass
 [
@@ -97,7 +99,7 @@
 \let\originaltableofcontents\tableofcontents
 \renewcommand{\tableofcontents}
 {
-    
+
     \setcounter{page}{3}
     \ESKDthisStyle{formII}
     \originaltableofcontents
