@@ -147,7 +147,7 @@
     \ifx#1\@empty\else\\(#1)\fi\\
   \end{list}%
   \par\nobreak\addvspace{\ESKDappendixSkip}
-  \ESKDthisStyle{formII}  
+  \ESKDthisStyle{formII}
   \ESKDcolumnI{#2}
 }
 
