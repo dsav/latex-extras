@@ -1,13 +1,13 @@
 \ProvidesClass{dsavarticle}
 
-% Base this class on 'scrartcl' class
+% Base this class on 'extarticle' class
 
 \DeclareOption*{
-  \PassOptionsToClass{\CurrentOption}{scrartcl}
+  \PassOptionsToClass{\CurrentOption}{extarticle}
 }
 \ProcessOptions
 
-\LoadClass[a4paper, 12pt]{scrartcl}
+\LoadClass[a4paper, 12pt]{extarticle}
 
 
 % Use additional math features.
