@@ -20,10 +20,10 @@
 
 %% \source[language=text]{file} Inputs 'file' and applies 'language' syntax
 %%                              coloring scheme
-%% Usage                        \source{java}{Main.java}
+%% Usage                        \source[java]{Main.java}
 \newcommand{\source}[2][text]
 {
-    {\sffamily
+  {\sffamily
     \inputminted[
       frame = single,
       linenos,
@@ -38,10 +38,10 @@
 
 %% \nonumsource[language=text]{file} Inputs 'file' and applies 'language' syntax
 %%                                   coloring scheme. No line numbers are added.
-%% Usage                             \nonumsource{java}{Main.java}
+%% Usage                             \nonumsource[java]{Main.java}
 \newcommand{\nonumsource}[2][text]
 {
-    {\sffamily
+  {\sffamily
     \inputminted[
       frame = single,
       numbersep = -12pt,
