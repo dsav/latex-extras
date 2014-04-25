@@ -9,6 +9,14 @@
 
 \DeclareRobustCommand\No\textnumero
 
+\usepackage[utf8]{inputenc}
+
+% This seems to silence the following babel warning:
+%   No Cyrillic font encoding has been loaded so far.
+%   A font encoding should be declared before babel.
+%   Default `T2A' encoding will be loaded
+\usepackage[T2A]{fontenc}
+
 % Base this class on 'eskdtext' class
 \LoadClass
 [
