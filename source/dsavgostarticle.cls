@@ -105,10 +105,10 @@
 
 % Redefine \tableofcontents so that it has inscription and its page number is 3
 \let\originaltableofcontents\tableofcontents
-\renewcommand{\tableofcontents}
+\renewcommand{\tableofcontents}[1][3]
 {
 
-    \setcounter{page}{3}
+    \setcounter{page}{#1}
     \ESKDthisStyle{formII}
     \originaltableofcontents
 }
