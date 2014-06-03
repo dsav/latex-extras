@@ -113,6 +113,38 @@
     \originaltableofcontents
 }
 
+\renewcommand{\ESKDappendix}[2]{%
+  \ESKDclearDoublePage%
+  \refstepcounter{appendix}%
+  \setcounter{point}{0}%
+  \ifESKD@point@style@single%
+    \renewcommand{\thepoint}{\theappendix.\arabic{point}}%
+  \fi
+  \setcounter{section}{0}%
+  \renewcommand{\thesection}{\theappendix.\arabic{section}}%
+  \setcounter{equation}{0}%
+  \renewcommand{\theequation}{\theappendix.\arabic{equation}}%
+  \setcounter{figure}{0}%
+  \renewcommand{\thefigure}{\theappendix.\arabic{figure}}%
+  \setcounter{table}{0}%
+  \renewcommand{\thetable}{\theappendix.\arabic{table}}%
+  \addcontentsline{toc}{section}{\appendixname\ \theappendix\ #2}%
+  \begin{list}{}{%
+    \setlength{\itemindent}{0mm}%
+    \setlength{\labelwidth}{0mm}%
+    \setlength{\labelsep}{0mm}%
+    \setlength{\leftmargin}{0mm}%
+    \setlength{\topsep}{0mm}%
+    \setlength{\parskip}{0mm}%
+    \setlength{\partopsep}{0mm}%
+    \setlength{\itemsep}{0mm}%
+    \setlength{\parsep}{0mm}}
+    \item\centering\textbf\appendixname\ \textbf\theappendix
+    \ifx#1\@empty\else\\(#1)\fi\\
+    \item\centering\bf #2
+  \end{list}%
+  \par\nobreak\addvspace{\ESKDappendixSkip}
+}
 
 % Patched version of eskdstamp.sty is required in order to implement
 % \ESKDinscriptedappendix. See eskdstamp.sty and eskdstamp.sty.diff for
@@ -151,7 +183,7 @@
     \setlength{\partopsep}{0mm}%
     \setlength{\itemsep}{0mm}%
     \setlength{\parsep}{0mm}}
-    \item\centering\appendixname\ \theappendix
+    \item\centering\textbf\appendixname\ \textbf\theappendix
     \ifx#1\@empty\else\\(#1)\fi\\
   \end{list}%
   \par\nobreak\addvspace{\ESKDappendixSkip}
